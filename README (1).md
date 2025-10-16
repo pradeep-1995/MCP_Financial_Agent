@@ -24,7 +24,7 @@ ngrok http 8001
 # Option B: Use your production URL
 BACKEND_URL="<your-url>"
 curl -F "url=${BACKEND_URL}/api/webhook" \
-  https://api.telegram.org/bot8436070360:AAGIQ-j_EFEWEXlhoQyrAZ3kczu34Ik2vbg/setWebhook
+  https://api.telegram.org/
 ```
 
 ### 2. Use the Bot
