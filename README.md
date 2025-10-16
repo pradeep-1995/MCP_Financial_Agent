@@ -45,6 +45,84 @@ It simulates the behavior of a **hedge-fund-grade AI analyst** — collecting re
 [Report Agent] → Final Memo & Recommendation
 ```
 
+---
+
+## 🧬 Workflow Diagram
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant T as Telegram
+    participant F as FastAPI Server
+    participant Y as yFinance
+    participant P as Pattern Analyzer
+    participant L as LSTM Model
+    participant A as ARIMA Model
+    participant M as MCP Layer
+    participant D as Decision Engine
+
+    U->>T: "analyze AAPL"
+    T->>F: Webhook POST /webhook
+    F->>Y: Fetch OHLCV Data
+    F->>P: Detect candlestick pattern
+    F->>L: Predict using LSTM
+    F->>A: Forecast using ARIMA
+    F->>M: Adjust weights (self-learning)
+    M->>D: Combine signals (ensemble)
+    D->>T: Send summarized result
+```
+
+
+## 💬 Example Interaction
+
+**User:**
+`analyze TSLA`
+
+**Bot Reply:**
+
+```
+📊 TSLA Market Summary:
+🕯️ Pattern: Bullish Engulfing
+💬 Sentiment: Positive (+0.27)
+🔮 Forecasts:
+   • ARIMA: ↑ +0.41%
+   • LSTM: ↑ +0.32%
+✅ Recommendation: BUY (Confidence: 84%)
+```
+
+---
+
+## 🧠 Candlestick Patterns Detected
+
+| Pattern                  | Description               |
+| ------------------------ | ------------------------- |
+| 🟩 **Bullish Engulfing** | Indicates upward reversal |
+| 🟥 **Bearish Engulfing** | Signals downward trend    |
+| ⚫ **Doji**               | Market indecision         |
+| 🔨 **Hammer**            | Bullish reversal pattern  |
+| 🌠 **Shooting Star**     | Bearish reversal signal   |
+| 🌅 **Morning Star**      | Strong bullish reversal   |
+
+---
+
+## 🧮 LSTM + ARIMA Fusion
+
+The system combines **ARIMA (statistical)** and **LSTM (neural)** outputs using a **weighted ensemble**.
+The weights are **adaptively tuned** by the MCP layer based on:
+
+* Prediction accuracy
+* Timeframe reliability
+* Recent volatility
+
+```python
+final_prediction = w1 * lstm_forecast + w2 * arima_forecast
+```
+
+
+
+
+
+
 ### 🔹 Data Flow Summary
 
 ```
